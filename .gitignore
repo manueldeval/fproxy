@@ -19,7 +19,7 @@ target/
 .classpath
 .editorconfig
 .project
-.idea
+.idea/
 .loadpath
 .recommenders
 

@@ -1,10 +1,8 @@
 package org.deman.fproxy;
 
-import io.vavr.control.Option;
 import io.vertx.core.Vertx;
 import io.vertx.core.net.NetSocket;
 import org.deman.fproxy.config.Config;
-import org.deman.fproxy.http.Prolog;
 import org.deman.fproxy.http.PrologFinder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

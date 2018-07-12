@@ -1,0 +1,12 @@
+version: '2.2'
+services:
+  fproxy:
+    container_name: fproxy
+    image: deman/fproxy
+    volumes:
+      - ./config.yml:/usr/fproxy/config.yml
+    ports:
+      - "8989:8080"
+    restart: always
+    environment:
+      - INSTANCES=2
