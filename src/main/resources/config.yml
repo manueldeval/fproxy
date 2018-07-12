@@ -1,0 +1,24 @@
+
+port: 8080
+
+rules:
+    - name: UPSTREAM
+      type: upstream
+      host: 127.0.0.1
+      port: 8888
+      when:
+        type: regexp
+        pattern: .*linux.*
+
+    - name: NOMORANDINI
+      type: discard
+      when:
+        type: regexp
+        pattern: prout.com
+
+    - name: DIRECT
+      type: direct
+      when:
+        type: regexp
+        pattern: .*
+
