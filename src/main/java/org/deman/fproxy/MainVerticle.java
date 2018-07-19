@@ -14,6 +14,5 @@ public class MainVerticle extends AbstractVerticle {
     public void start() throws Exception {
         Config configuration = ConfigLoader.load(System.getProperty(CONFIG_FILE_PROPERTY_KEY));
         new Proxy(vertx,configuration).start();
-        LOGGER.info("Starting proxy on port: {}", configuration.getPort());
     }
 }

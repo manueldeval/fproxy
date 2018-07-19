@@ -6,6 +6,7 @@ import io.vavr.control.Option;
 import org.deman.fproxy.config.rules.DirectRule;
 import org.deman.fproxy.config.rules.DiscardRule;
 import org.deman.fproxy.config.rules.UpstreamRule;
+import org.deman.fproxy.config.rules.WSTunnelRule;
 import org.deman.fproxy.http.Headers;
 
 @JsonTypeInfo(
@@ -15,7 +16,8 @@ import org.deman.fproxy.http.Headers;
 @JsonSubTypes({
     @JsonSubTypes.Type(value = DirectRule.class, name = "direct"),
     @JsonSubTypes.Type(value = DiscardRule.class, name = "discard"),
-    @JsonSubTypes.Type(value = UpstreamRule.class, name = "upstream")
+    @JsonSubTypes.Type(value = UpstreamRule.class, name = "upstream"),
+    @JsonSubTypes.Type(value = WSTunnelRule.class, name = "wstunnel")
 })
 public abstract class Rule {
     private String name;

@@ -1,0 +1,10 @@
+
+wsTunnelPort: 9090
+
+rules:
+  - name: Direct
+    type: direct
+    when:
+      type: regexp
+      pattern: .*
+

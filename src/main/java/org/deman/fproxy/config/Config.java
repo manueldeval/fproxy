@@ -6,18 +6,27 @@ import io.vavr.collection.List;
 import io.vavr.control.Option;
 
 public class Config {
-    private int port;
+    private Integer port;
     private List<Rule> rules;
 
+    private Integer wsTunnelPort;
+
     @JsonCreator
-    public Config(@JsonProperty("port") int port,
+    public Config(@JsonProperty("port") Integer port,
+                  @JsonProperty("wsTunnelPort") Integer wsTunnelPort,
                   @JsonProperty("rules") List<Rule> rules) {
-        this.port = Option.of(port).getOrElse(8080);
+        this.port = port;
+        this.wsTunnelPort = wsTunnelPort;
         this.rules = Option.of(rules).getOrElse(List.empty());
     }
 
-    public int getPort() {
+
+    public Integer getPort() {
         return port;
+    }
+
+    public Integer getWsTunnelPort() {
+        return wsTunnelPort;
     }
 
     public List<Rule> getRules() {
