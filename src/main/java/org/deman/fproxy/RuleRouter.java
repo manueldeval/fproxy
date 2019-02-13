@@ -39,7 +39,6 @@ public class RuleRouter {
             Case($(instanceOf(DirectRule.class)), () -> new DirectProxyHandler(vertx)),
             Case($(instanceOf(UpstreamRule.class)), () -> new UpstreamProxyHandler(vertx, (UpstreamRule) rule)),
             Case($(instanceOf(DiscardRule.class)), DiscardProxyHandler::new),
-            Case($(instanceOf(WSTunnelRule.class)), () -> new WsTunnelHandler(vertx,(WSTunnelRule) rule)),
             Case($(), NoRuleProxyHandler::new));
         handler.handle(browserSocket, prolog);
     }

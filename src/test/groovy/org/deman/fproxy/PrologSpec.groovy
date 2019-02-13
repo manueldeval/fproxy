@@ -11,7 +11,7 @@ import org.deman.fproxy.http.Prolog
 import org.deman.fproxy.http.PrologFinder
 import spock.lang.Specification
 
-class PrologSpec extends Specification{
+class PrologSpec extends Specification {
 
     def "headerLineToTuple should split the header line"(String line, Option<Tuple2<String,String>> tuple) {
         expect:

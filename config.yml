@@ -2,31 +2,21 @@
 port: 8080
 
 rules:
-    - name: websocket
-      type: wstunnel
-      host: 127.0.0.1
-      port: 9090
-      when:
-        type: regexp
-        pattern: .*
-
-#    - name: UPSTREAM
-#      type: upstream
-#      host: 127.0.0.1
-#      port: 8888
-#      when:
-#        type: regexp
-#        pattern: .*linux.*
-#
-#    - name: DROP
-#      type: discard
-#      when:
-#        type: regexp
-#        pattern: prout.com
-#
-#    - name: Fallback
-#      type: direct
-#      when:
-#        type: regexp
-#        pattern: .*
+#  - name: UPSTREAM
+#    type: upstream
+#    host: 127.0.0.1
+#    port: 8888
+#    when:
+#      type: host_regexp
+#      pattern: .*linux.*
+  - name: DROP
+    type: discard
+    when:
+      type: host_regexp
+      pattern: prout.com
+  - name: Fallback
+    type: direct
+    when:
+      type: host_regexp
+      pattern: .*
 

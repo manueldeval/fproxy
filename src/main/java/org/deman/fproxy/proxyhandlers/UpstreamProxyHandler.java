@@ -21,7 +21,6 @@ public class UpstreamProxyHandler implements ProxyHandler {
 
     @Override
     public void handle(NetSocket browserSocket, Prolog prolog) {
-
         vertx.createNetClient().connect(this.upstreamRule.getPort(), this.upstreamRule.getHost(), (AsyncResult<NetSocket> serverSocketAsync) -> {
             if (serverSocketAsync.succeeded()) {
 

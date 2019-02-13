@@ -3,10 +3,10 @@ package org.deman.fproxy.config;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import io.vavr.control.Option;
+import org.deman.fproxy.config.acceptors.YesAcceptor;
 import org.deman.fproxy.config.rules.DirectRule;
 import org.deman.fproxy.config.rules.DiscardRule;
 import org.deman.fproxy.config.rules.UpstreamRule;
-import org.deman.fproxy.config.rules.WSTunnelRule;
 import org.deman.fproxy.http.Headers;
 
 @JsonTypeInfo(
@@ -16,8 +16,7 @@ import org.deman.fproxy.http.Headers;
 @JsonSubTypes({
     @JsonSubTypes.Type(value = DirectRule.class, name = "direct"),
     @JsonSubTypes.Type(value = DiscardRule.class, name = "discard"),
-    @JsonSubTypes.Type(value = UpstreamRule.class, name = "upstream"),
-    @JsonSubTypes.Type(value = WSTunnelRule.class, name = "wstunnel")
+    @JsonSubTypes.Type(value = UpstreamRule.class, name = "upstream")
 })
 public abstract class Rule {
     private String name;
@@ -25,7 +24,7 @@ public abstract class Rule {
 
     public Rule(String name, Acceptor acceptor) {
         this.name = Option.of(name).getOrElse("Unknown");
-        this.acceptor = Option.of(acceptor).getOrElse((h) -> false);
+        this.acceptor = Option.of(acceptor).getOrElse(YesAcceptor::new);
     }
 
     public String getName() {

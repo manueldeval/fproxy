@@ -9,24 +9,16 @@ public class Config {
     private Integer port;
     private List<Rule> rules;
 
-    private Integer wsTunnelPort;
-
     @JsonCreator
     public Config(@JsonProperty("port") Integer port,
-                  @JsonProperty("wsTunnelPort") Integer wsTunnelPort,
                   @JsonProperty("rules") List<Rule> rules) {
         this.port = port;
-        this.wsTunnelPort = wsTunnelPort;
         this.rules = Option.of(rules).getOrElse(List.empty());
     }
 
 
     public Integer getPort() {
         return port;
-    }
-
-    public Integer getWsTunnelPort() {
-        return wsTunnelPort;
     }
 
     public List<Rule> getRules() {
