@@ -5,8 +5,6 @@ import io.vavr.control.Option;
 import org.deman.fproxy.config.Acceptor;
 import org.deman.fproxy.http.Headers;
 
-import java.util.List;
-
 public class NotAcceptor implements Acceptor {
 
     private Acceptor acceptor;

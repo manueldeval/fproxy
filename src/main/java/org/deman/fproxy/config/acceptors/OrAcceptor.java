@@ -7,8 +7,6 @@ import org.deman.fproxy.config.Acceptor;
 import org.deman.fproxy.http.Headers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class OrAcceptor implements Acceptor {

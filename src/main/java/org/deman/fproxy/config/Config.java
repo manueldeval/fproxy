@@ -10,15 +10,8 @@ public class Config {
     private List<Rule> rules;
 
     @JsonCreator
-    public Config(@JsonProperty("port") Integer port,
-                  @JsonProperty("rules") List<Rule> rules) {
-        this.port = port;
+    public Config(@JsonProperty("rules") List<Rule> rules) {
         this.rules = Option.of(rules).getOrElse(List.empty());
-    }
-
-
-    public Integer getPort() {
-        return port;
     }
 
     public List<Rule> getRules() {

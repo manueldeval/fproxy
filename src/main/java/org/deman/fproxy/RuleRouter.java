@@ -1,10 +1,14 @@
 package org.deman.fproxy;
 
 import io.vavr.collection.List;
+import io.vertx.config.ConfigRetriever;
 import io.vertx.core.Vertx;
 import io.vertx.core.net.NetSocket;
 import org.deman.fproxy.config.Rule;
-import org.deman.fproxy.config.rules.*;
+import org.deman.fproxy.config.rules.DirectRule;
+import org.deman.fproxy.config.rules.DiscardRule;
+import org.deman.fproxy.config.rules.NoRule;
+import org.deman.fproxy.config.rules.UpstreamRule;
 import org.deman.fproxy.http.Prolog;
 import org.deman.fproxy.proxyhandlers.*;
 import org.slf4j.Logger;

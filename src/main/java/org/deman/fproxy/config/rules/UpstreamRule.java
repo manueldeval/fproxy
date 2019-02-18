@@ -2,7 +2,6 @@ package org.deman.fproxy.config.rules;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.vavr.control.Option;
 import org.deman.fproxy.config.Acceptor;
 import org.deman.fproxy.config.Rule;
 

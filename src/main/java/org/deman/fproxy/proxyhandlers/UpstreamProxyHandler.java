@@ -26,7 +26,7 @@ public class UpstreamProxyHandler implements ProxyHandler {
 
                 if (upstreamRule.getUser()!= null && upstreamRule.getPassword()!=null) {
                     String encoded = Base64.getEncoder().encodeToString((upstreamRule.getUser() + ":" + upstreamRule.getPassword()).getBytes());
-                    prolog.setHeader("Proxy-Authorization", "Basic " + encoded);
+                    prolog.setHeader("ProxyVerticle-Authorization", "Basic " + encoded);
                 }
 
                 NetSocket serverSocket = serverSocketAsync.result();

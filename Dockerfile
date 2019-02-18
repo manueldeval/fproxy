@@ -9,4 +9,5 @@ COPY --from=build /usr/src/fproxy/target/*-fat.jar /usr/fproxy/target/
 COPY start.sh /usr/fproxy/
 
 EXPOSE 8080
-ENTRYPOINT ["/usr/fproxy/start.sh"]
+#ENTRYPOINT ["/usr/fproxy/start.sh"]
+ENTRYPOINT ["java","-jar","/usr/fproxy/target/fproxy-1.0.0-SNAPSHOT-fat.jar"]

@@ -33,7 +33,7 @@
                 <artifactId>vertx-hot-maven-plugin</artifactId>
                 <version>2.1.0</version>
                 <configuration>
-                    <verticleReference>org.deman.fproxy.MainVerticle</verticleReference>
+                    <verticleReference>org.deman.fproxy.ProxyVerticle</verticleReference>
                     <!-- <configFile>config filename</configFile> -->
                 </configuration>
             </plugin>
@@ -52,14 +52,8 @@
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <Main-Class>io.vertx.core.Launcher</Main-Class>
-                                        <Main-Verticle>org.deman.fproxy.MainVerticle</Main-Verticle>
+                                        <Main-Class>org.deman.fproxy.EntryPoint</Main-Class>
                                     </manifestEntries>
-                                </transformer>
-                                <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                                    <resource>META-INF/services/io.vertx.core.spi.VerticleFactory</resource>
-                                    <resource>META-INF/services/io.vertx.core.spi.launcher.CommandFactory</resource>
                                 </transformer>
                             </transformers>
                             <artifactSet>
@@ -79,7 +73,7 @@
                     <mainClass>io.vertx.core.Launcher</mainClass>
                     <arguments>
                         <argument>run</argument>
-                        <argument>org.deman.fproxy.MainVerticle</argument>
+                        <argument>org.deman.fproxy.ProxyVerticle</argument>
                     </arguments>
                 </configuration>
             </plugin>
@@ -96,6 +90,21 @@
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-unit</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-dropwizard-metrics</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-config</artifactId>
             <version>${vertx.version}</version>
         </dependency>
         <dependency>

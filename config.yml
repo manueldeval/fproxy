@@ -1,6 +1,4 @@
 
-port: 8080
-
 rules:
 #  - name: UPSTREAM
 #    type: upstream

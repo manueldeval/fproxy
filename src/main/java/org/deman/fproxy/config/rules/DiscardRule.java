@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.deman.fproxy.config.Acceptor;
 import org.deman.fproxy.config.Rule;
-import org.deman.fproxy.http.Headers;
 
 public class DiscardRule extends Rule {
     @JsonCreator

@@ -10,6 +10,6 @@ public class ProxyError {
     }
 
     public static void sendError(NetSocket browserSocket) {
-        sendError(browserSocket,"Proxy error.");
+        sendError(browserSocket,"ProxyVerticle error.");
     }
 }
